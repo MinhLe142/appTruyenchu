@@ -1,19 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import {Component, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import RootComponent from "./src/screen/index"
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-    </NavigationContainer>
+    <RootComponent />
   );
 }
 
