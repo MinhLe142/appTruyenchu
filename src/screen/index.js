@@ -6,6 +6,7 @@ import {
 
 } from "react-native";
 import Login from "./login";
+
 import register from "./register";
 import Register from "./register";
 import {NavigationContainer} from '@react-navigation/native';
@@ -21,5 +22,5 @@ export default RootComponent = function () {
         <Login />
         {/* <Register /> */}
         </NavigationContainer>
-    );
+
 }
