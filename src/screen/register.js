@@ -18,10 +18,10 @@ const windowHeight = Dimensions.get("window").height;
 
 export default Register = () => {
     const [getPasswordVisible, setPasswordVisible] = useState(false);
+    const [getEmail, setEmail] = useState("");
+    const [getUsername, setUsername] = useState("");
     const [getPassword, setPassword] = useState("");
     const [getConfirmPassword, setConfirmPassword] = useState("");
-    const [getUsername, setUsername] = useState("");
-    const [getEmail, setEmail] = useState("");
       
         const handleRegister = () => {
           
@@ -40,7 +40,7 @@ export default Register = () => {
         }
     
     return (
-        <ImageBackground style = {{height: '100%', width: '100%'}} source={require('../images/background.jpg')} resizeMode='strecth'>
+        <ImageBackground style = {{height: '100%', width: '100%'}} source={require('../images/background.jpg')} resizeMode="stretch">
             <StatusBar barStyle="light-content"/>
             <SafeAreaView style={{flex: 1}}>
                 <View style={{height: '100%', width: '100%'} }>
@@ -51,13 +51,17 @@ export default Register = () => {
                             <Text style={{color: "white"}}>Email</Text>
                             <TextInput style={{width: '70%',height: '100%', borderBottomColor:"white", borderBottomWidth: 1,textAlign: "right", color: "white"}} 
                              autoCapitalize="none"    
+                             value={getEmail}
+                             onChangeText={(text) => setEmail(text)}
                             />
                         </View>
                         {/* Tài khoản */}
                         <View style={{width: '70%', height: '30%' ,flexDirection: "row", alignItems: 'center', justifyContent: 'space-around', marginTop: 10}}>
                             <Text style={{color: "white"}}>Tài khoản</Text>
                             <TextInput style={{width: '70%',height: '100%', borderBottomColor:"white", borderBottomWidth: 1,textAlign: "right", color: "white"}} 
-                             autoCapitalize="none"    
+                             autoCapitalize="none"  
+                             value={getUsername}
+                             onChangeText={(text) => setUsername(text)}  
                             />
                         </View>
                         {/* Mat khau */}
