@@ -6,11 +6,12 @@ import {
 
 } from "react-native";
 import Login from "./login";
-
+import Register from "./register"
 export default RootComponent = function () {
     return(
         <SafeAreaView>
-            <Login />
+            // <Login />
+        <Register />
         </SafeAreaView>
     );
 }
