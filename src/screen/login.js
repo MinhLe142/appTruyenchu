@@ -44,7 +44,11 @@ export default Login = () => {
                                 setPasswordVisible(!getPasswordVisible);
                             }}
                             >
+                            {!getPasswordVisible?
                                 <Image source={require('../images/invisible-active.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}} /> 
+                                :
+                                <Image source={require('../images/invisible-unactive.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}}/>
+                            } 
                             </TouchableOpacity>
                         </View>
 
