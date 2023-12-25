@@ -11,15 +11,29 @@ import {
     Dimensions,
     TextInput,
     Image,
+    Alert,
 } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export default Login = () => {
 
+    const [getUsername, setUsername] = useState("");
+    const [getPassword, setPassword] = useState("");
+
+    const handleLogin = () => {
+          
+        if (!getUsername || !getPassword ) {
+            Alert.alert("Thông báo", "Vui lòng nhập đầy đủ thông tin.");
+            return;
+        }  
+
+        
+    }
+
     const [getPasswordVisible, setPasswordVisible] = useState(false);
     return (
-        <ImageBackground style = {{height: '100%', width: '100%'}} source={require('../images/background.jpg')} resizeMode='strecth'>
+        <ImageBackground style = {{height: '100%', width: '100%'}} source={require('../images/background.jpg')} resizeMode="stretch">
             <StatusBar barStyle="light-content"/>
             <SafeAreaView style={{flex: 1}}>
                 <View style={{height: '100%', width: '100%'} }>
@@ -29,22 +43,28 @@ export default Login = () => {
                         <View style={{width: '70%', height: '30%' ,flexDirection: "row", alignItems: 'center', justifyContent: 'space-around'}}>
                             <Text style={{color: "white"}}>Tài khoản</Text>
                             <TextInput style={{width: '70%',height: '100%', borderBottomColor:"white", borderBottomWidth: 1,textAlign: "right", color: "white"}} 
-                             autoCapitalize="none"    
+                             autoCapitalize="none"
+                             value={getUsername}
+                             onChangeText={(text) => setUsername(text)}
                             />
                         </View>
                         {/* Mat khau */}
                         <View style={{width: '70%', height: '30%' ,flexDirection: "row", alignItems: 'center', justifyContent: 'space-around', marginTop: 10}}>
                             <Text style={{color: "white"}}>Mật khẩu</Text>
                             <TextInput style={{width: '70%',height: '100%', borderBottomColor:"white", borderBottomWidth: 1,textAlign: "right", color: "white", paddingRight: 30}} 
-                             autoCapitalize="none"
-                             secureTextEntry={getPasswordVisible? false: true}
+                            autoCapitalize="none"
+                            secureTextEntry={getPasswordVisible? false: true}
+                            value={getPassword}
+                            onChangeText={(text) => setPassword(text)}
                             />
                             <TouchableOpacity style={{height: '100%',width: 30 , position: "absolute", right: 0}}
                             onPress={() => {
                                 setPasswordVisible(!getPasswordVisible);
                             }}
                             >
+
                                 {!getPasswordVisible?
+
                                 <Image source={require('../images/invisible-active.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}} /> 
                                 :
                                 <Image source={require('../images/invisible-unactive.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}}/>
@@ -57,7 +77,9 @@ export default Login = () => {
                     <View style={{width: '100%', height: '20%', marginTop: 0.15 * windowHeight, justifyContent: 'center', alignItems: 'center'}}>
                         <TouchableOpacity style={{width:'60%', height: '30%', backgroundColor: '#2ADC4D', justifyContent: 'center', alignItems: 'center',
                         borderColor: 'white', borderRadius: 100, borderWidth: 2
-                        }}>
+                        }}
+                        onPress={handleLogin}
+                        >
                             <Text style={{color: 'white', fontSize: 20}}>
                                 Đăng Nhập
                             </Text>
