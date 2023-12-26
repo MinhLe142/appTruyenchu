@@ -82,6 +82,7 @@ export default Login = () => {
                             }}
                                 onPress={handleLogin}
                             >
+<<<<<<< HEAD
                                 <Text style={{ color: 'white', fontSize: 20 }}>
                                     Đăng Nhập
                                 </Text>
@@ -93,6 +94,15 @@ export default Login = () => {
                                 <Text style={{ color: 'white', fontSize: 20 }}>
                                     Đăng ký
                                 </Text>
+=======
+
+                                {!getPasswordVisible?
+
+                                <Image source={require('../images/invisible-active.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}} /> 
+                                :
+                                <Image source={require('../images/invisible-unactive.png')} style={{height: '100%', width: '100%', resizeMode: 'contain'}}/>
+                            } 
+>>>>>>> 8b5a43e6a0ce1e75e9043717e3e71b03082d5401
                             </TouchableOpacity>
                         </View>
                     </View>
